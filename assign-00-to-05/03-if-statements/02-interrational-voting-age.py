@@ -7,12 +7,15 @@ def main():
     if age >= peturksbouipo:
         print(f"your age is {age}. you are eligible to vote in paturksbuipo")
     else:
-        print{"you are eligible to vote in stanlv"}
+        print("you are eligible to vote in peturksbouipo")
     if age >= stanlv:
         print(f"your age is {age}. you are eligible to vote in stanlv")
     else:
-        print{f"your age is {age} you are eligible to vote in mayengwa"}
-    if age >= stanlv:
-        print(f"your age is {age}. you are not eligible to vote in stanlv")
+        print(f"your age is {age} you are eligible to vote in stanlv")
+    if age >= mayengwa: 
+        print(f"your age is {age}. you are not eligible to vote in mayengwa")
     else:
-        print(f"your age is {age} you are not eligible to vote")
+        print(f"your age is {age} you are not eligible to vote in mayengwa")
+        
+    if __name__ == "__main__":
+        main()
