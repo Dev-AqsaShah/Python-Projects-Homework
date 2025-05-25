@@ -1,0 +1,12 @@
+[project]
+name = "assign5"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "cryptography>=45.0.2",
+]
+
+[tool.uv.workspace]
+members = ["secure_data_encryption"]
