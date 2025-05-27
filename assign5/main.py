@@ -38,3 +38,7 @@ def load_key():
             return cipher.sha256(passkey.encode()).hexdigest()
         
         def encrypt(text):
+            return cipher.encrypt(text.encode()).decode()
+        
+        def decrypt(encrypted_text):
+            return
