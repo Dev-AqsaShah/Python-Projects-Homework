@@ -41,4 +41,30 @@ def load_key():
             return cipher.encrypt(text.encode()).decode()
         
         def decrypt(encrypted_text):
-            return
+            return cipher.decrypt(encrypted_text.encode()).decode()
+        
+        st.title("secure Data Encryption App")
+        menu = ["store secrete", "reteieve secret"]
+        choice = st.sidebar.selectbox("choose option",menu)
+        
+        if choice == "store secret":
+            st.header("store a new secret")
+            
+            label= st.text_input("Label (Unique 10): ")
+            secret = st.text_area("Your Secret")
+            passkey = st.text_input("Passkey (to protect it):", type="password")
+            
+            if st.button("Encrypt and save"):
+                if label and secret and passkey:
+                    conn = sqlite3.connect("simple_data.db")
+                    c = conn.cursor()
+                    
+                    encrypted = encrypt(secret)
+                    hashed_key = hash_passkey(passkey)
+                    
+                    try:
+                        c.execute("INSERT INTO vault (label, encrypted_text, passkey) VALUES (?,?,?)"
+                                  (label,encrypted,hashed_key))
+                        conn.commit()
+                        st.success("secret saved successfully")
+                    except sqlite3.IntegrityError:
