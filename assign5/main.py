@@ -64,7 +64,22 @@ def load_key():
                     
                     try:
                         c.execute("INSERT INTO vault (label, encrypted_text, passkey) VALUES (?,?,?)"
-                                  (label,encrypted,hashed_key))
+                                (label,encrypted,hashed_key))
                         conn.commit()
                         st.success("secret saved successfully")
                     except sqlite3.IntegrityError:
+                        st.error("Label already exists!")
+                    conn.close
+                else:
+                    st.warning("fill all fields")
+                    
+            elif choice == "reteieve secret":
+                st.header("reteieve your secret")
+                
+                label = st.text_input("secret label")
+                passkey = st.text_input("enter passkey", type = "password")
+                
+                if st.button("decrypt"):
+                    conn = sqlite3.connect("simple_data_db")
+                    c = conn.cursor()
+                    c.execute("select encrypted_text passkey from ")
