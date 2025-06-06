@@ -69,3 +69,41 @@ class Employee:
         
 emp1 : Employee = Employee("aqsa shah",50000,"123-45-678")
 print(emp1.name) 
+print(emp1._salary)
+print(emp1.__ssn)
+
+
+
+# 8. The super() Function
+# Assignment:
+# Create a class Person with a constructor that sets the name. Inherit a class Teacher from it, add a subject field, and use super() to call the base class constructor.
+
+
+class Person:
+    def __init__(self,name):
+        self.name = name
+        
+class Teacher(Person):
+    def __init__(self, name, subject):
+        super().__init__(name)
+        self.subject = subject
+        
+teacher: Teacher = Teacher("aqsa shah", "computer science")  # noqa: F821
+print(f'Name: {teacher.name}, Subject: {teacher.subject}')
+
+
+# 9. Abstract Classes and Methods
+# Assignment:
+# Use the abc module to create an abstract class Shape with an abstract method area(). Inherit a class Rectangle that implements area().
+
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+    
+class Rectangle(Shape):
+    def __init__(self,heigh,width):
+        self.height = height  # noqa: F821
+        self.width = width
