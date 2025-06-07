@@ -107,3 +107,9 @@ class Rectangle(Shape):
     def __init__(self,heigh,width):
         self.height = height  # noqa: F821
         self.width = width
+        
+    def area(self):
+        return self.height * self.width
+    
+rect1 :Rectangle = Rectangle(5.10)
+print(f'area of rectangle: {rect1.area()}')
