@@ -113,3 +113,19 @@ class Rectangle(Shape):
     
 rect1 :Rectangle = Rectangle(5.10)
 print(f'area of rectangle: {rect1.area()}')
+
+
+
+# 10. Instance Methods
+# Assignment:
+# Create a class Dog with instance variables name and breed. Add an instance method bark() that prints a message including the dog's name.
+
+class Dog:
+    def __init__(self,name,bread):
+        self.name = name
+        self.bread = bread
+    def bark(self):
+        print(f'{self.name} says wooff')
+        
+dog :Dog = Dog("Tommy","labrador")
+print(dog.bark())
